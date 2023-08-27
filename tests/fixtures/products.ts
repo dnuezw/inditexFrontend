@@ -1,14 +1,8 @@
 import { JSONRecord } from "../../src/types/http";
-import { Product } from "../../src/types/product";
+import { ProductsBuilder } from "./builders/products";
 
 export class ProductsFixture {
-  static aProduct: Product = {
-    img: 'an image',
-    name: 'a name',
-    price: 1
-  }
-
-  static someProducts: JSONRecord[] = [this.aProduct]
+  static someProducts: JSONRecord[] = [new ProductsBuilder().build()]
 
   static aProductResponse: JSONRecord = {
     products: this.someProducts
