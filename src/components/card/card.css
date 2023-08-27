@@ -7,3 +7,7 @@
   border-radius: 5px;
   max-width: 9rem;
 }
+
+.card h1 {
+  font-size: 1.5rem;
+}
