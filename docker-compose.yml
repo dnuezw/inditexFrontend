@@ -11,3 +11,16 @@ services:
     ports:
       - 3000:3000
     container_name: inditex-app
+  mockServer:
+    image: mockserver/mockserver:5.15.0
+    ports:
+      - 1090:1090
+    environment:
+      MOCKSERVER_WATCH_INITIALIZATION_JSON: "true"
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/*.json
+      MOCKSERVER_PROPERTY_FILE: /config/mockServer.properties
+      MOCKSERVER_ENABLE_CORS_FOR_API: "true"
+      MOCKSERVER_ENABLE_CORS_FOR_ALL_RESPONSES: "true"
+      SERVER_PORT: 1090
+    volumes:
+      - ./mockServer/:/config
