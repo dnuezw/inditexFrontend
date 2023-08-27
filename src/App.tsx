@@ -1,5 +1,6 @@
 import './App.css'
 import { products } from './common/product'
+import Card from './components/card/Card'
 import Header from './components/header/Header'
 
 function App() {  
@@ -8,11 +9,7 @@ function App() {
       <Header />
       <div role='list'>
         {products.map((product) => 
-          <div className='card' role='listitem' key={product.name}>
-            <img src={product.img} alt={product.name}></img>
-            <h1>{product.name}</h1>
-            <p role='paragraph'>{product.price}</p>
-          </div>
+          <Card product={product} key={product.name} />
         )}
       </div>
     </>

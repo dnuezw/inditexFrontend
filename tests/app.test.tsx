@@ -19,14 +19,6 @@ vi.mock('/src/common/product', () => {
 })
 
 describe('App', () => {
-  it('renders a product', () => {
-    SUT.render()
-
-    expect(SUT.productImage()).toBeInTheDocument()
-    expect(SUT.productName()).toBeInTheDocument()
-    expect(SUT.productPrice()).toBeInTheDocument()
-  })
-
   it('renders multiple products', () => {
     SUT.render()
 
@@ -40,18 +32,6 @@ describe('App', () => {
 class SUT {
   static render(): void {
     render(<App />)
-  }
-
-  static productImage(): HTMLElement {
-    return screen.getByAltText('a name')
-  }
-
-  static productName(): HTMLElement {
-    return screen.getByRole('heading', {name: 'a name'})
-  }
-
-  static productPrice(): HTMLElement {
-    return screen.getByText(1)
   }
 
   static allProductsImagesFrom(node: HTMLElement): HTMLElement[] {

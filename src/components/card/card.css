@@ -1,0 +1,8 @@
+.card {
+  margin: 1rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px 0 #00000033;
+  border-radius: 5px;
+}
