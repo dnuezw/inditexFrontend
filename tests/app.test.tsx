@@ -1,26 +1,15 @@
-import { render, screen, within } from "@testing-library/react"
+import { act, render, screen, within } from "@testing-library/react"
 import App from "../src/App"
-
-vi.mock('/src/common/product', () => {
-  return {
-    products: [
-      {
-        img: 'an img',
-        name: 'a name',
-        price: 1
-      },
-      {
-        img: 'another img',
-        name: 'another name',
-        price: 2
-      }
-    ]
-  }
-})
+import { Product } from "../src/types/product"
+import { ProductsBuilder } from "./fixtures/builders/products"
+import { ProductsActionStub } from "./stubs/productsAction"
 
 describe('App', () => {
-  it('renders multiple products', () => {
-    SUT.render()
+  it('renders multiple products', async () => {
+    const firstProduct: Product = new ProductsBuilder().build()
+    const secondProduct: Product = new ProductsBuilder().with().img('another img').and().name('another name').and().price(2).build()
+    ProductsActionStub.spyRetrieveProducts([firstProduct, secondProduct])
+    await SUT.render()
 
     const cardList = screen.getByRole('list')
     expect(SUT.allProductsImagesFrom(cardList).length).toEqual(2)
@@ -30,19 +19,21 @@ describe('App', () => {
 })
 
 class SUT {
-  static render(): void {
-    render(<App />)
+  static async render(): Promise<void> {
+    await act(async () => {
+      render(<App />)
+    })
   }
 
-  static allProductsImagesFrom(node: HTMLElement): HTMLElement[] {
+  static  allProductsImagesFrom(node: HTMLElement): HTMLElement[] {
     return within(node).getAllByRole('img')
   }
 
-  static allProductsNamesFrom(node: HTMLElement): HTMLElement[] {
+  static  allProductsNamesFrom(node: HTMLElement): HTMLElement[] {
     return within(node).getAllByRole('heading')
   }
 
-  static allProductsPricesFrom(node: HTMLElement): HTMLElement[] {
+  static  allProductsPricesFrom(node: HTMLElement): HTMLElement[] {
     return within(node).getAllByRole('paragraph')
   }
 }

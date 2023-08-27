@@ -1,11 +1,11 @@
 import { ProductsActions } from "../../src/actions/products"
 import { Product } from "../../src/types/product"
 import { ProductsFixture } from "../fixtures/products"
-import { ProductsStub } from "../stubs/products"
+import { ProductsServiceStub } from "../stubs/productsService"
 
 describe('ProductsActions', () => {
   it('returns an array of products', async () => {
-    ProductsStub.spyRetrieveProducts()
+    ProductsServiceStub.spyRetrieveProducts()
     const expectedProducts: Product[] = [ProductsFixture.aProduct]
 
     const products = await ProductsActions.retrieveProducts()
