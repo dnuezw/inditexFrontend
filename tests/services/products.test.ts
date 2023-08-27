@@ -14,7 +14,7 @@ describe('ProductsService', () => {
 
   it('returns an array of products as a JSONRecord array', async () => {
     HttpStub.spyGet()
-    const expectedProducts: JSONRecord[] = ProductsFixture.aProduct
+    const expectedProducts: JSONRecord[] = ProductsFixture.someProducts
 
     const products = await ProductsService.retrieveProducts()
 
