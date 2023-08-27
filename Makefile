@@ -12,3 +12,10 @@ test:
 
 test-one:
 	docker compose run --rm app npm run test:watch $(ARGS)
+
+check-types:
+	docker compose run --rm app npm run check-types
+
+before-commit:
+	make check-types
+	make test
