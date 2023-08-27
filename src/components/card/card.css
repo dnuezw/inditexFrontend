@@ -5,4 +5,5 @@
   align-items: center;
   box-shadow: 0 4px 10px 0 #00000033;
   border-radius: 5px;
+  max-width: 9rem;
 }
