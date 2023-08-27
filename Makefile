@@ -11,4 +11,4 @@ test:
 	docker compose run --rm app npm run test
 
 test-one:
-	docker compose run --rm app npm run test $(ARGS)
+	docker compose run --rm app npm run test:watch $(ARGS)
