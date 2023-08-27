@@ -1,6 +1,5 @@
 import { render, screen, within } from "@testing-library/react"
 import App from "../src/App"
-import { titles } from "../src/common/titles"
 
 vi.mock('/src/common/product', () => {
   return {
@@ -19,19 +18,7 @@ vi.mock('/src/common/product', () => {
   }
 })
 
-describe("App", () => {
-  it("renders app header with title", () => {
-    SUT.render()
-
-    expect(SUT.appTitle()).toBeInTheDocument()
-  })
-
-  it("renders article title", () => {
-    SUT.render()
-
-    expect(SUT.articleTitle()).toBeInTheDocument()
-  })
-
+describe('App', () => {
   it('renders a product', () => {
     SUT.render()
 
@@ -53,14 +40,6 @@ describe("App", () => {
 class SUT {
   static render(): void {
     render(<App />)
-  }
-
-  static appTitle(): HTMLElement {
-    return screen.getByRole('heading', {name: titles.app})
-  }
-
-  static articleTitle(): HTMLElement {
-    return screen.getByRole('heading', {name: titles.product})
   }
 
   static productImage(): HTMLElement {

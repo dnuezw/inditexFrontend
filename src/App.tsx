@@ -1,14 +1,11 @@
 import './App.css'
 import { products } from './common/product'
-import { titles } from './common/titles'
+import Header from './components/header/Header'
 
 function App() {  
   return (
     <>
-      <div className='header'>
-        <h1>{titles.app}</h1>
-        <h2>{titles.product}</h2>
-      </div>
+      <Header />
       <div role='list'>
         {products.map((product) => 
           <div className='card' role='listitem' key={product.name}>
