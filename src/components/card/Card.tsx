@@ -5,7 +5,7 @@ type CardProps = {
   product: Product
 }
 
-const Card: React.FC<CardProps> = ({product}) => {
+const Card: React.FC<CardProps> = ({ product }) => {
   return (
     <div className='card' role='listitem' key={product.name}>
       <img src={product.img} alt={product.name}></img>

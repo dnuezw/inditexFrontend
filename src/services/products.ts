@@ -1,6 +1,6 @@
-import { HttpRepository } from "../repositories/http";
-import { JSONRecord } from "../types/http";
-import { cleanNonSet } from "../utils/record";
+import { HttpRepository } from '../repositories/http'
+import { JSONRecord } from '../types/http'
+import { cleanNonSet } from '../utils/record'
 
 export class ProductsService {
   private static baseUrl: string = 'http://localhost:1090'
@@ -10,7 +10,7 @@ export class ProductsService {
     const queryParams: Record<string, string> = {
       ids
     }
-    
+
     const response = await HttpRepository.get(endpoint, cleanNonSet(queryParams))
 
     return response.products as JSONRecord[]

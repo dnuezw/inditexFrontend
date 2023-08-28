@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='editor/:ids' element={<Editor />}/>
+        <Route path='editor/:ids' element={<Editor />} />
         <Route path='*' element={<Navigate to='/editor/1' />} />
       </Routes>
     </BrowserRouter>

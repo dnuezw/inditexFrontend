@@ -2,7 +2,7 @@ export const cleanNonSet = (toClean: Record<string, string>): Record<string, str
   const result: Record<string, string> = {}
 
   Object.entries(toClean).forEach(([key, value]) => {
-    if(value.trim() !== '') result[key] = value
+    if (value.trim() !== '') result[key] = value
   })
 
   return result
