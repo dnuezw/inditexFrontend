@@ -1,33 +1,15 @@
-import { useEffect, useState } from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Card from './components/card/Card'
-import Header from './components/header/Header'
-import { Product } from './types/product'
-import { ProductsActions } from './actions/products'
+import Editor from './components/editor/Editor'
 
-function App() {
-  const [products, setProducts] = useState<Product[]>([])
-
-  useEffect(() => {
-    retrieveProducts()
-  }, [])
-
-  const retrieveProducts = async (): Promise<void> => {
-    const newProducts: Product[] = await ProductsActions.retrieveProducts()    
-    setProducts(() => {
-      return newProducts.map((product) => product)
-    })
-  }
-
+const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <div role='list'>
-        {products.map((product) => 
-          <Card product={product} key={product.name} />
-        )}
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='editor/:ids' element={<Editor />}/>
+        <Route path='*' element={<Navigate to='/editor/1' />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
