@@ -16,6 +16,14 @@ test-one:
 check-types:
 	docker compose run --rm app npm run check-types
 
+lint-fix:
+	docker compose run --rm app npm run lint:fix
+
+format-write:
+	docker compose run --rm app npm run format:write
+
 before-commit:
 	make check-types
+	make format-write
+	make lint-fix
 	make test
