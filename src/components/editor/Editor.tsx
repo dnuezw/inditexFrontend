@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ProductsActions } from "../../actions/products"
-import { Product } from "../../types/product"
+import { ProductsRow } from "../../types/product"
 import Header from "../header/Header"
-import ProductRow from "../row/ProductRow"
 import './editor.css'
+import ProductRow from "../row/ProductRow"
 
 type EditorParams = {
   ids: string
@@ -12,15 +12,15 @@ type EditorParams = {
 
 const Editor: React.FC = () => {
   const { ids } = useParams<EditorParams>()
-  const [products, setProducts] = useState<Product[]>([])
+  const [productsRows, setProductsRows] = useState<ProductsRow[]>([])
 
   useEffect(() => {
     retrieveProducts()
   }, [ids])
 
   const retrieveProducts = async (): Promise<void> => {    
-    const newProducts: Product[] = await ProductsActions.retrieveProducts(ids!)    
-    setProducts(() => {
+    const newProducts: ProductsRow[] = await ProductsActions.retrieveProducts(ids!)        
+    setProductsRows(() => {
       return newProducts.map((product) => product)
     })
   }
@@ -28,7 +28,9 @@ const Editor: React.FC = () => {
   return (
     <>
       <Header />
-      <ProductRow products={products}/>
+      {productsRows.map((row, index) => {        
+        return <ProductRow products={row} key={`product-row-${index}`}/>
+      })}
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { ProductsActions } from "../../src/actions/products"
-import { Product } from "../../src/types/product"
+import { ProductsRow } from "../../src/types/product"
 import { ProductsBuilder } from "../fixtures/builders/products"
 import { ProductsFixture } from "../fixtures/products"
 import { ProductsServiceStub } from "../stubs/productsService"
@@ -13,9 +13,9 @@ describe('ProductsActions', () => {
     expect(spy).toHaveBeenCalledWith(ProductsFixture.aProductId)
   })
 
-  it('returns an array of products', async () => {
+  it('returns an array of products row', async () => {
     ProductsServiceStub.spyRetrieveProducts()
-    const expectedProducts: Product[] = [new ProductsBuilder().build()]
+    const expectedProducts: ProductsRow[] = [[new ProductsBuilder().build()]]
 
     const products = await ProductsActions.retrieveProducts(ProductsFixture.aProductId)
 

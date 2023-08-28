@@ -1,12 +1,12 @@
 import Settings from "../../infraestructure/settings"
-import { Product } from "../../types/product"
+import { ProductsRow } from "../../types/product"
 import Card from "../card/Card"
 
 type ProductRowProps = {
-  products: Product[]
+  products: ProductsRow
 }
 
-const ProductRow: React.FC<ProductRowProps> = ({products}) => {
+const ProductRow: React.FC<ProductRowProps> = ({products}) => {  
   if(products.length < Settings.rowMinProducts() || 
     products.length > Settings.rowMaxProducts()) {
     return
