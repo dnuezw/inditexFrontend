@@ -13,7 +13,7 @@ const Editor: React.FC = () => {
   }, [])
 
   const retrieveProducts = async (): Promise<void> => {
-    const newProducts: Product[] = await ProductsActions.retrieveProducts()    
+    const newProducts: Product[] = await ProductsActions.retrieveProducts('')    
     setProducts(() => {
       return newProducts.map((product) => product)
     })
