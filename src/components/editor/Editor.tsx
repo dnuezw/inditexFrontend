@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ProductsActions } from "../../actions/products"
 import { Product } from "../../types/product"
-import Card from "../card/Card"
 import Header from "../header/Header"
+import ProductRow from "../row/ProductRow"
 import './editor.css'
 
 type EditorParams = {
@@ -28,11 +28,7 @@ const Editor: React.FC = () => {
   return (
     <>
       <Header />
-      <div role='list'>
-        {products.map((product) => 
-          <Card product={product} key={product.name} />
-        )}
-      </div>
+      <ProductRow products={products}/>
     </>
   )
 }
