@@ -1,6 +1,6 @@
 import Settings from '../../../infraestructure/settings'
 import { ProductsRow } from '../../../types/product'
-import Card from '../card/Card'
+import Column from '../column/Column'
 
 type RowProps = {
   products: ProductsRow
@@ -14,7 +14,7 @@ const Row: React.FC<RowProps> = ({ products }) => {
   return (
     <div role='list'>
       {products.map((product) => (
-        <Card product={product} key={product.name} />
+        <Column product={product} key={product.name} />
       ))}
     </div>
   )

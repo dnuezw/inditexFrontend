@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react"
-import Card from "../../../src/components/product/card/Card"
+import Column from "../../../src/components/product/column/Column"
+import { ProductsBuilder } from "../../fixtures/builders/products"
 
-describe('Card', () => {
+describe('Column', () => {
   it('renders a product', () => {
     SUT.render()
 
@@ -13,13 +14,8 @@ describe('Card', () => {
 
 class SUT {
   static render(): void {
-    render(<Card product={
-      {
-        img: 'an img',
-        name: 'a name',
-        price: 1
-      }
-    }/>)
+    const aProduct = new ProductsBuilder().build()
+    render(<Column product={aProduct}/>)
   }
 
   static productImage(): HTMLElement {

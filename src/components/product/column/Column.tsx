@@ -1,11 +1,11 @@
 import { Product } from '../../../types/product'
-import './card.css'
+import './column.css'
 
-type CardProps = {
+type ColumnProps = {
   product: Product
 }
 
-const Card: React.FC<CardProps> = ({ product }) => {
+const Column: React.FC<ColumnProps> = ({ product }) => {
   return (
     <div className='card' role='listitem' key={product.name}>
       <img src={product.img} alt={product.name}></img>
@@ -15,4 +15,4 @@ const Card: React.FC<CardProps> = ({ product }) => {
   )
 }
 
-export default Card
+export default Column
