@@ -1,12 +1,12 @@
-import Settings from '../../infraestructure/settings'
-import { ProductsRow } from '../../types/product'
+import Settings from '../../../infraestructure/settings'
+import { ProductsRow } from '../../../types/product'
 import Card from '../card/Card'
 
-type ProductRowProps = {
+type RowProps = {
   products: ProductsRow
 }
 
-const ProductRow: React.FC<ProductRowProps> = ({ products }) => {
+const Row: React.FC<RowProps> = ({ products }) => {
   if (products.length < Settings.rowMinProducts() || products.length > Settings.rowMaxProducts()) {
     return
   }
@@ -20,4 +20,4 @@ const ProductRow: React.FC<ProductRowProps> = ({ products }) => {
   )
 }
 
-export default ProductRow
+export default Row

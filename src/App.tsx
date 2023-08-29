@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Editor from './components/editor/Editor'
+import Editor from './components/product/editor/Editor'
 
 const App: React.FC = () => {
   return (

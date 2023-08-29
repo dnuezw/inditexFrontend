@@ -1,9 +1,9 @@
 import { act, render, screen, within } from "@testing-library/react"
-import Editor from "../../src/components/editor/Editor"
-import { Product } from "../../src/types/product"
-import { ProductsBuilder } from "../fixtures/builders/products"
-import { ProductsFixture } from "../fixtures/products"
-import { ProductsActionStub } from "../stubs/productsAction"
+import Editor from "../../../src/components/product/editor/Editor"
+import { Product } from "../../../src/types/product"
+import { ProductsBuilder } from "../../fixtures/builders/products"
+import { ProductsFixture } from "../../fixtures/products"
+import { ProductsActionStub } from "../../stubs/productsAction"
 
 vi.mock('react-router-dom', () => ({
   useParams: () => ({

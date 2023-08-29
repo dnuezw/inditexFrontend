@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductsActions } from '../../actions/products'
-import { ProductsRow } from '../../types/product'
-import Header from '../header/Header'
+import { ProductsActions } from '../../../actions/products'
+import { ProductsRow } from '../../../types/product'
+import Header from '../../header/Header'
+import Row from '../row/Row'
 import './editor.css'
-import ProductRow from '../row/ProductRow'
 
 type EditorParams = {
   ids: string
@@ -29,7 +29,7 @@ const Editor: React.FC = () => {
     <>
       <Header />
       {productsRows.map((row, index) => {
-        return <ProductRow products={row} key={`product-row-${index}`} />
+        return <Row products={row} key={`product-row-${index}`} />
       })}
     </>
   )

@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react"
-import ProductRow from "../../src/components/row/ProductRow"
-import { Product } from "../../src/types/product"
-import { ProductsBuilder } from "../fixtures/builders/products"
-import Settings from "../../src/infraestructure/settings"
+import Row from "../../../src/components/product/row/Row"
+import Settings from "../../../src/infraestructure/settings"
+import { Product } from "../../../src/types/product"
+import { ProductsBuilder } from "../../fixtures/builders/products"
 
-describe('ProductRow', () => {
+describe('Row', () => {
   it('renders one card', () => {
     const aProduct: Product = new ProductsBuilder().build()
     SUT.render([aProduct])
@@ -40,7 +40,7 @@ describe('ProductRow', () => {
 
 class SUT {
   static render(products: Product[]): void {
-    render(<ProductRow products={products}/>)
+    render(<Row products={products}/>)
   }
 
   static card(): HTMLElement | null {
