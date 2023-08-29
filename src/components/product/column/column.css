@@ -1,4 +1,4 @@
-.card {
+.column {
   margin: 1rem;
   display: inline-flex;
   flex-direction: column;
@@ -8,10 +8,10 @@
   max-width: 9rem;
 }
 
-.card h1 {
+.column h1 {
   font-size: 1.5rem;
 }
 
-.card img {
+.column img {
   max-width: 9rem;
 }

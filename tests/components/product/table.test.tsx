@@ -23,10 +23,10 @@ class SUT {
   }
 
   static row(): HTMLElement {
-    return screen.getByRole('list')
+    return screen.getByRole('row')
   }
 
   static rows(): HTMLElement[] {
-    return screen.getAllByRole('list')
+    return screen.getAllByRole('row')
   }
 }

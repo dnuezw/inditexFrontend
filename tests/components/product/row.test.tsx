@@ -40,14 +40,20 @@ describe('Row', () => {
 
 class SUT {
   static render(products: Product[]): void {
-    render(<Row products={products}/>)
+    render(
+      <table>
+        <tbody>
+          <Row products={products}/>
+        </tbody>
+      </table>
+    )
   }
 
   static card(): HTMLElement | null {
-    return screen.queryByRole('listitem')
+    return screen.queryByRole('gridcell')
   }
 
   static cards(): HTMLElement[] {
-    return screen.queryAllByRole('listitem')
+    return screen.queryAllByRole('gridcell')
   }
 }

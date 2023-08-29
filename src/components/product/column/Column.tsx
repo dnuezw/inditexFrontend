@@ -7,11 +7,11 @@ type ColumnProps = {
 
 const Column: React.FC<ColumnProps> = ({ product }) => {
   return (
-    <div className='card' role='listitem' key={product.name}>
+    <td role='gridcell' className='column' key={product.name}>
       <img src={product.img} alt={product.name}></img>
       <h1>{product.name}</h1>
       <p role='paragraph'>{product.price}</p>
-    </div>
+    </td>
   )
 }
 

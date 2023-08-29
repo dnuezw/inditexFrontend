@@ -7,11 +7,13 @@ type TableProps = {
 
 const Table: React.FC<TableProps> = ({ productsRows }) => {
   return (
-    <div>
-      {productsRows.map((row, index) => (
-        <Row products={row} key={`product-row-${index}`} />
-      ))}
-    </div>
+    <table role='table'>
+      <tbody>
+        {productsRows.map((row, index) => (
+          <Row products={row} key={`product-row-${index}`} />
+        ))}
+      </tbody>
+    </table>
   )
 }
 

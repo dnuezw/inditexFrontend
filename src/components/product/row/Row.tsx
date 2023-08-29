@@ -12,11 +12,11 @@ const Row: React.FC<RowProps> = ({ products }) => {
   }
 
   return (
-    <div role='list'>
+    <tr>
       {products.map((product) => (
         <Column product={product} key={product.name} />
       ))}
-    </div>
+    </tr>
   )
 }
 
