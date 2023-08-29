@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ProductsActions } from '../../../actions/products'
 import { ProductsRow } from '../../../types/product'
 import Header from '../../header/Header'
-import Row from '../row/Row'
+import Table from '../table/Table'
 import './editor.css'
 
 type EditorParams = {
@@ -28,9 +28,7 @@ const Editor: React.FC = () => {
   return (
     <>
       <Header />
-      {productsRows.map((row, index) => {
-        return <Row products={row} key={`product-row-${index}`} />
-      })}
+      <Table productsRows={productsRows} />
     </>
   )
 }
