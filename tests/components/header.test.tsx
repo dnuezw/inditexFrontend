@@ -4,8 +4,7 @@ import Header from "../../src/components/header/Header"
 vi.mock('/src/common/titles', () => {
   return {
     titles: {
-      app: 'an application name',
-      product: 'a product title'
+      app: 'an application name'
     }
   }
 })
@@ -16,12 +15,6 @@ describe('Header', () => {
 
     expect(SUT.appTitle()).toBeInTheDocument()
   })
-
-  it("renders article title", () => {
-    SUT.render()
-
-    expect(SUT.articleTitle()).toBeInTheDocument()
-  })
 })
 
 class SUT {
@@ -31,9 +24,5 @@ class SUT {
 
   static appTitle(): HTMLElement {
     return screen.getByRole('heading', {name: 'an application name'})
-  }
-
-  static articleTitle(): HTMLElement {
-    return screen.getByRole('heading', {name: 'a product title'})
   }
 }

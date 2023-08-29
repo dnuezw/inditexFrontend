@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductsActions } from '../../../actions/products'
+import { titles } from '../../../common/titles'
 import { ProductsRow } from '../../../types/product'
-import Header from '../../header/Header'
 import Table from '../table/Table'
 import './editor.css'
 
@@ -26,10 +26,10 @@ const Editor: React.FC = () => {
   }, [retrieveProducts])
 
   return (
-    <>
-      <Header />
+    <div className='editor'>
+      <h1>{titles.product}</h1>
       <Table productsRows={productsRows} />
-    </>
+    </div>
   )
 }
 
