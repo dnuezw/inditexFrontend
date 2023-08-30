@@ -1,25 +1,33 @@
 import { render, screen } from "@testing-library/react"
 import Table from "../../../src/components/product/table/Table"
-import { ProductsRow } from "../../../src/types/product"
 import { ProductsFixture } from "../../fixtures/products"
+import { ProductsActionStub } from "../../stubs/productsAction"
+
+vi.mock('../../../src/context/table/table.ts', () => {
+  return {
+    useTable: () => ({
+      table: ProductsFixture.someProductsTable,
+      updateTable: () => {},
+      updateProductsOrder: () => {}
+    })
+  }
+})
 
 describe('Table', () => {
-  it('renders a row of products', () => {
-    SUT.render(ProductsFixture.oneProductTable)
-
-    expect(SUT.row()).toBeInTheDocument()
+  beforeAll(() => {
+    ProductsActionStub.spyRetrieveProducts([])
   })
 
   it('renders multiple rows of products', () => {
-    SUT.render(ProductsFixture.someProductsTable)
+    SUT.render()
 
     expect(SUT.rows().length).toEqual(3)
   })
 })
 
 class SUT {
-  static render(products: ProductsRow[]): void {
-    render(<Table productsTable={products} onUpdateProductsOrder={()=>{}}/>)
+  static  render(): void {
+    render(<Table productIds={ProductsFixture.aProductId}/>)
   }
 
   static row(): HTMLElement {

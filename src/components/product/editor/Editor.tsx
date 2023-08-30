@@ -1,8 +1,6 @@
-import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductsActions } from '../../../actions/products'
 import { titles } from '../../../common/titles'
-import { ProductsTable } from '../../../types/product'
+import { TableProvider } from '../../../context/table/TableProvider'
 import Table from '../table/Table'
 import './editor.css'
 
@@ -12,41 +10,15 @@ type EditorParams = {
 
 const Editor: React.FC = () => {
   const { ids } = useParams<EditorParams>()
-  const [productsTable, setProductsTable] = useState<ProductsTable>()
 
-  const retrieveProducts = useCallback(async () => {
-    const newProducts: ProductsTable = await ProductsActions.retrieveProducts(ids!)
-    setProductsTable(() => {
-      return newProducts.map((product) => product)
-    })
-  }, [ids])
-
-  useEffect(() => {
-    retrieveProducts()
-  }, [retrieveProducts])
-
-  if (!productsTable) return <></>
-
-  const handleUpdateProductsOrder = (
-    rowId: string,
-    initialPosition: number,
-    finalPosition: number
-  ) => {
-    const productsTableCopy: ProductsTable = JSON.parse(JSON.stringify(productsTable))
-    const rowPosition = productsTableCopy.findIndex((row) => row.id === rowId)
-
-    const products = productsTableCopy[rowPosition].products
-    const secondProduct = products[finalPosition]
-    products[finalPosition] = products[initialPosition]
-    products[initialPosition] = secondProduct
-
-    setProductsTable(productsTableCopy)
-  }
+  if (!ids) return <></>
 
   return (
     <div className='editor'>
       <h1>{titles.product}</h1>
-      <Table productsTable={productsTable} onUpdateProductsOrder={handleUpdateProductsOrder} />
+      <TableProvider>
+        <Table productIds={ids} />
+      </TableProvider>
     </div>
   )
 }
