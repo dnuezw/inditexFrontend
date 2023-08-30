@@ -19,7 +19,7 @@ describe('Table', () => {
 
 class SUT {
   static render(products: ProductsRow[]): void {
-    render(<Table productsTable={products}/>)
+    render(<Table productsTable={products} onUpdateProductsOrder={()=>{}}/>)
   }
 
   static row(): HTMLElement {

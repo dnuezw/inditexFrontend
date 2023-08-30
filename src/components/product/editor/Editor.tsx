@@ -27,10 +27,26 @@ const Editor: React.FC = () => {
 
   if (!productsTable) return <></>
 
+  const handleUpdateProductsOrder = (
+    rowId: string,
+    initialPosition: number,
+    finalPosition: number
+  ) => {
+    const productsTableCopy: ProductsTable = JSON.parse(JSON.stringify(productsTable))
+    const rowPosition = productsTableCopy.findIndex((row) => row.id === rowId)
+
+    const products = productsTableCopy[rowPosition].products
+    const secondProduct = products[finalPosition]
+    products[finalPosition] = products[initialPosition]
+    products[initialPosition] = secondProduct
+
+    setProductsTable(productsTableCopy)
+  }
+
   return (
     <div className='editor'>
       <h1>{titles.product}</h1>
-      <Table productsTable={productsTable} />
+      <Table productsTable={productsTable} onUpdateProductsOrder={handleUpdateProductsOrder} />
     </div>
   )
 }

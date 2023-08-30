@@ -15,15 +15,7 @@ describe('Column', () => {
 class SUT {
   static render(): void {
     const aProduct = new ProductsBuilder().build()
-    render(
-      <table>
-        <tbody>
-          <tr>
-            <Column product={aProduct}/>
-          </tr>
-        </tbody>
-      </table>
-    )
+    render(<Column product={aProduct}/>)
   }
 
   static productImage(): HTMLElement {

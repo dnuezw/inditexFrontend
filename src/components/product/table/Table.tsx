@@ -3,17 +3,21 @@ import Row from '../row/Row'
 
 type TableProps = {
   productsTable: ProductsTable
+  onUpdateProductsOrder: (rowId: string, initialPosition: number, finalPosition: number) => void
 }
 
-const Table: React.FC<TableProps> = ({ productsTable }) => {
+const Table: React.FC<TableProps> = ({ productsTable, onUpdateProductsOrder }) => {
   return (
-    <table role='table'>
-      <tbody>
-        {productsTable.map((row) => (
-          <Row products={row.products} key={`product-row-${row.id}`} />
-        ))}
-      </tbody>
-    </table>
+    <div role='table'>
+      {productsTable.map((row) => (
+        <Row
+          products={row.products}
+          rowId={row.id}
+          key={`product-row-${row.id}`}
+          onUpdateProductsOrder={onUpdateProductsOrder}
+        />
+      ))}
+    </div>
   )
 }
 

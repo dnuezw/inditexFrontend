@@ -6,7 +6,7 @@ export class ProductsActions {
   static async retrieveProducts(ids: string): Promise<ProductsTable> {
     const products = (await ProductsService.retrieveProducts(ids)) as Product[]
 
-    const productsTable = this.convertToTable(products)    
+    const productsTable = this.convertToTable(products)
     return productsTable
   }
 
