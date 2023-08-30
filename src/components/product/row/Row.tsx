@@ -6,6 +6,7 @@ import Settings from '../../../infraestructure/settings'
 import { Product } from '../../../types/product'
 import Column from '../column/Column'
 import './row.css'
+import { restrictToFirstScrollableAncestor } from '@dnd-kit/modifiers'
 
 type RowProps = {
   products: Product[]
@@ -37,7 +38,11 @@ const Row: React.FC<RowProps> = ({ products, rowId }) => {
   }
 
   return (
-    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <DndContext
+      collisionDetection={closestCenter}
+      modifiers={[restrictToFirstScrollableAncestor]}
+      onDragEnd={handleDragEnd}
+    >
       <SortableContext items={products} strategy={horizontalListSortingStrategy}>
         <div
           {...attributes}
