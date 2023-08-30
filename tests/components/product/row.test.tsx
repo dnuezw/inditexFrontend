@@ -40,7 +40,7 @@ describe('Row', () => {
 
 class SUT {
   static render(products: Product[]): void {
-    render(<Row products={products} rowId="an id" onUpdateProductsOrder={()=>{}}/>)
+    render(<Row products={products} rowId="an id" />)
   }
 
   static card(): HTMLElement | null {

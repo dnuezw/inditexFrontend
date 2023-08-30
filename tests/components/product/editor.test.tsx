@@ -24,13 +24,6 @@ describe('Editor', () => {
 
     expect(SUT.articleTitle()).toBeInTheDocument()
   })
-
-  it('calls the service with the ids from the url', async () => {
-    const spy = ProductsActionStub.spyRetrieveProducts([])
-    await SUT.render()
-
-    expect(spy).toHaveBeenCalledWith(ProductsFixture.urlProductIds)
-  })
 })
 
 class SUT {

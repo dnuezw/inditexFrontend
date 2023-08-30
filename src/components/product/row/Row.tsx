@@ -3,17 +3,15 @@ import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortabl
 import Settings from '../../../infraestructure/settings'
 import { Product } from '../../../types/product'
 import Column from '../column/Column'
+import { useTable } from '../../../context/table/table'
 
 type RowProps = {
   products: Product[]
   rowId: string
-  onUpdateProductsOrder: (rowId: string, initialPosition: number, finalPosition: number) => void
 }
 
-const Row: React.FC<RowProps> = ({ products, rowId, onUpdateProductsOrder }) => {
-  if (products.length < Settings.rowMinProducts() || products.length > Settings.rowMaxProducts()) {
-    return
-  }
+const Row: React.FC<RowProps> = ({ products, rowId }) => {
+  const { updateProductsOrder } = useTable()
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
@@ -21,7 +19,11 @@ const Row: React.FC<RowProps> = ({ products, rowId, onUpdateProductsOrder }) => 
 
     const initialPosition = products.findIndex((product) => product.id === active.id)
     const finalPosition = products.findIndex((product) => product.id === over.id)
-    onUpdateProductsOrder(rowId, initialPosition, finalPosition)
+    updateProductsOrder(rowId, initialPosition, finalPosition)
+  }
+
+  if (products.length < Settings.rowMinProducts() || products.length > Settings.rowMaxProducts()) {
+    return
   }
 
   return (

@@ -9,7 +9,7 @@ type TableProps = {
 }
 
 const Table: React.FC<TableProps> = ({ productIds }) => {
-  const { table, updateTable, updateProductsOrder } = useTable()
+  const { table, updateTable } = useTable()
 
   useEffect(() => {
     retrieveProducts()
@@ -21,23 +21,10 @@ const Table: React.FC<TableProps> = ({ productIds }) => {
     updateTable(newProducts)
   }
 
-  const handleUpdateProductsOrder = (
-    rowId: string,
-    initialPosition: number,
-    finalPosition: number
-  ) => {
-    updateProductsOrder(rowId, initialPosition, finalPosition)
-  }
-
   return (
     <div role='table'>
       {table.map((row) => (
-        <Row
-          products={row.products}
-          rowId={row.id}
-          key={`product-row-${row.id}`}
-          onUpdateProductsOrder={handleUpdateProductsOrder}
-        />
+        <Row products={row.products} rowId={row.id} key={`product-row-${row.id}`} />
       ))}
     </div>
   )
