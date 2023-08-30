@@ -24,6 +24,13 @@ export class ProductsFixture {
     }
   ]
 
+  static twoProductsTable: ProductsTable = [
+    {
+      id: this.aRowId,
+      products: [new ProductsBuilder().build(), new ProductsBuilder().with().id(this.anotherProductId).and().img('another img').and().name('another name').and().price(2).build()]
+    }
+  ]
+
   static someProductsTable: ProductsTable = [
     {
       id: this.aRowId,
