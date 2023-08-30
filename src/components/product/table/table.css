@@ -3,4 +3,6 @@
   flex-direction: column;
   gap: 0.5rem;
   border: 1px solid black;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

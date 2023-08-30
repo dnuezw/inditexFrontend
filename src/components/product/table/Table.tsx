@@ -6,6 +6,7 @@ import { useTable } from '../../../context/table/table'
 import { ProductsTable } from '../../../types/product'
 import Row from '../row/Row'
 import './table.css'
+import { restrictToFirstScrollableAncestor } from '@dnd-kit/modifiers'
 
 type TableProps = {
   productIds: string
@@ -34,7 +35,11 @@ const Table: React.FC<TableProps> = ({ productIds }) => {
   }
 
   return (
-    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <DndContext
+      collisionDetection={closestCenter}
+      modifiers={[restrictToFirstScrollableAncestor]}
+      onDragEnd={handleDragEnd}
+    >
       <SortableContext items={table} strategy={verticalListSortingStrategy}>
         <div role='table' className='table'>
           {table.map((row) => (
