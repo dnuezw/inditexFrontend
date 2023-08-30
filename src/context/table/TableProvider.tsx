@@ -22,10 +22,20 @@ const TableProvider: React.FC<TableProviderProps> = ({ children }) => {
     const rowPosition = result.findIndex((row) => row.id === rowId)
 
     const products = result[rowPosition].products
-    const secondProduct = products[finalPosition]
 
+    const secondProduct = products[finalPosition]
     products[finalPosition] = products[initialPosition]
     products[initialPosition] = secondProduct
+
+    updateTable(result)
+  }
+
+  const updateRowsOrder = (initialPosition: number, finalPosition: number): void => {
+    const result: ProductsTable = JSON.parse(JSON.stringify(table))
+
+    const secondRow = result[finalPosition]
+    result[finalPosition] = result[initialPosition]
+    result[initialPosition] = secondRow
 
     updateTable(result)
   }
@@ -33,7 +43,8 @@ const TableProvider: React.FC<TableProviderProps> = ({ children }) => {
   const value: TableContextType = {
     table,
     updateTable,
-    updateProductsOrder
+    updateProductsOrder,
+    updateRowsOrder
   }
 
   return <TableContext.Provider value={value}>{children}</TableContext.Provider>
