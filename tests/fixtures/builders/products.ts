@@ -2,9 +2,15 @@ import { Product } from "../../../src/types/product";
 
 export class ProductsBuilder {
   product: Product = {
+    id: 'an id',
     img: 'an image',
     name: 'a name',
     price: 1
+  }
+
+  id(newId: string): ProductsBuilder {
+    this.product.id = newId
+    return this
   }
 
   img(newImg: string): ProductsBuilder {

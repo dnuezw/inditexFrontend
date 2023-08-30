@@ -1,23 +1,29 @@
 import Settings from '../infraestructure/settings'
 import { ProductsService } from '../services/products'
-import { Product, ProductsRow } from '../types/product'
+import { Product, ProductsRow, ProductsTable } from '../types/product'
 
 export class ProductsActions {
-  static async retrieveProducts(ids: string): Promise<ProductsRow[]> {
+  static async retrieveProducts(ids: string): Promise<ProductsTable> {
     const products = (await ProductsService.retrieveProducts(ids)) as Product[]
 
-    const rows = this.convertToRow(products)
-    return rows
+    const productsTable = this.convertToTable(products)    
+    return productsTable
   }
 
-  private static convertToRow(products: Product[]): ProductsRow[] {
-    const rows: ProductsRow[] = []
+  private static convertToTable(products: Product[]): ProductsTable {
+    const result: ProductsTable = []
+    let productsRow: ProductsRow
+
     const numberOfProducts: number = Settings.rowMaxProducts()
     for (let i = 0; i < products.length; i += numberOfProducts) {
       const row = products.slice(i, i + numberOfProducts)
-      rows.push(row)
+      productsRow = {
+        id: `${result.length + 1}`,
+        products: row
+      }
+      result.push(productsRow)
     }
 
-    return rows
+    return result
   }
 }

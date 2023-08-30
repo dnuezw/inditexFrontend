@@ -5,13 +5,13 @@ import { ProductsFixture } from "../../fixtures/products"
 
 describe('Table', () => {
   it('renders a row of products', () => {
-    SUT.render(ProductsFixture.oneProductRow)
+    SUT.render(ProductsFixture.oneProductTable)
 
     expect(SUT.row()).toBeInTheDocument()
   })
 
   it('renders multiple rows of products', () => {
-    SUT.render(ProductsFixture.someProductRows)
+    SUT.render(ProductsFixture.someProductsTable)
 
     expect(SUT.rows().length).toEqual(3)
   })
@@ -19,7 +19,7 @@ describe('Table', () => {
 
 class SUT {
   static render(products: ProductsRow[]): void {
-    render(<Table productsRows={products}/>)
+    render(<Table productsTable={products}/>)
   }
 
   static row(): HTMLElement {

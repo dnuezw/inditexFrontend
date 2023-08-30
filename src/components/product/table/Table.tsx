@@ -1,16 +1,16 @@
-import { ProductsRow } from '../../../types/product'
+import { ProductsTable } from '../../../types/product'
 import Row from '../row/Row'
 
 type TableProps = {
-  productsRows: ProductsRow[]
+  productsTable: ProductsTable
 }
 
-const Table: React.FC<TableProps> = ({ productsRows }) => {
+const Table: React.FC<TableProps> = ({ productsTable }) => {
   return (
     <table role='table'>
       <tbody>
-        {productsRows.map((row, index) => (
-          <Row products={row} key={`product-row-${index}`} />
+        {productsTable.map((row) => (
+          <Row products={row.products} key={`product-row-${row.id}`} />
         ))}
       </tbody>
     </table>

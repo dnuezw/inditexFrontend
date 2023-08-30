@@ -1,9 +1,9 @@
 import Settings from '../../../infraestructure/settings'
-import { ProductsRow } from '../../../types/product'
+import { Product } from '../../../types/product'
 import Column from '../column/Column'
 
 type RowProps = {
-  products: ProductsRow
+  products: Product[]
 }
 
 const Row: React.FC<RowProps> = ({ products }) => {
