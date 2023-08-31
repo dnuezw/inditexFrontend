@@ -17,7 +17,6 @@ const Table: React.FC<TableProps> = ({ productIds }) => {
 
   useEffect(() => {
     retrieveProducts()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const retrieveProducts = async () => {

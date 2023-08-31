@@ -60,7 +60,6 @@ const Test: React.FC = () => {
 
   useEffect(() => {
     updateTable(ProductsFixture.twoProductsTable)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleClick = () => {

@@ -4,9 +4,9 @@ services:
   app:
     user: node
     build:
-      context: ./
+      context: ./app
     volumes:
-      - ./:/app
+      - ./app:/app
       - /app/node_modules
     ports:
       - 3000:3000
