@@ -24,3 +24,13 @@ services:
       SERVER_PORT: 1090
     volumes:
       - ./mockServer/:/config
+  e2e:
+    build:
+      context: ./e2e
+    volumes:
+      - ./e2e:/e2e
+      - /e2e/node_modules/
+    ports:
+      - 9223:9223
+    container_name: e2e
+    network_mode: host

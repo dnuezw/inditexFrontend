@@ -1,8 +1,8 @@
 build:
-	docker compose build
+	docker compose build app
 
 up:
-	docker compose up
+	docker compose up app mockServer
 
 down:
 	docker compose down
@@ -27,3 +27,9 @@ before-commit:
 	make format-write
 	make lint-fix
 	make test
+
+e2e-build:
+	docker compose build e2e
+
+e2e-test:
+	docker compose run --rm e2e npm run e2e
