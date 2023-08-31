@@ -1,4 +1,4 @@
-import { JSONRecord } from "../../src/types/http"
+import { JSONRecord } from '../../src/types/http'
 
 export class HttpFixture {
   static genericUrl: string = 'an url'
@@ -8,14 +8,14 @@ export class HttpFixture {
   }
 
   static getHeader: Record<string, unknown> = {
-    method: "GET"
+    method: 'GET'
   }
 
   static someQueryParams: Record<string, string> = {
     name: 'a ñame',
     position: '#1'
   }
-  
+
   static encodedUrl(): string {
     return encodeURI(HttpFixture.genericUrl)
   }

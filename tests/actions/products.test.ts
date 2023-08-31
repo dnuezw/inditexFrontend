@@ -1,7 +1,7 @@
-import { ProductsActions } from "../../src/actions/products"
-import { ProductsTable } from "../../src/types/product"
-import { ProductsFixture } from "../fixtures/products"
-import { ProductsServiceStub } from "../stubs/productsService"
+import { ProductsActions } from '../../src/actions/products'
+import { ProductsTable } from '../../src/types/product'
+import { ProductsFixture } from '../fixtures/products'
+import { ProductsServiceStub } from '../stubs/productsService'
 
 describe('ProductsActions', () => {
   it('calls retrieve products method on products service', async () => {

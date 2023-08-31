@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react"
-import Header from "../../src/components/header/Header"
+import { render, screen } from '@testing-library/react'
+import Header from '../../src/components/header/Header'
 
 vi.mock('/src/common/titles', () => {
   return {
@@ -10,7 +10,7 @@ vi.mock('/src/common/titles', () => {
 })
 
 describe('Header', () => {
-  it("renders app header with title", () => {
+  it('renders app header with title', () => {
     SUT.render()
 
     expect(SUT.appTitle()).toBeInTheDocument()
@@ -23,6 +23,6 @@ class SUT {
   }
 
   static appTitle(): HTMLElement {
-    return screen.getByRole('heading', {name: 'an application name'})
+    return screen.getByRole('heading', { name: 'an application name' })
   }
 }

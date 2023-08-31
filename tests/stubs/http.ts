@@ -1,6 +1,6 @@
-import { SpyInstance } from "vitest";
-import { HttpRepository } from "../../src/repositories/http";
-import { ProductsFixture } from "../fixtures/products";
+import { SpyInstance } from 'vitest'
+import { HttpRepository } from '../../src/repositories/http'
+import { ProductsFixture } from '../fixtures/products'
 
 export class HttpStub {
   static spyGet(): SpyInstance {

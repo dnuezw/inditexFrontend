@@ -1,8 +1,8 @@
-import { Mock } from "vitest"
-import { HttpRepository } from "../../src/repositories/http"
-import { HttpFixture } from "../fixtures/http"
+import { Mock } from 'vitest'
+import { HttpRepository } from '../../src/repositories/http'
+import { HttpFixture } from '../fixtures/http'
 
-global.fetch = vi.fn(() => 
+global.fetch = vi.fn(() =>
   Promise.resolve({
     status: 200,
     json: () => Promise.resolve(HttpFixture.genericResponse)

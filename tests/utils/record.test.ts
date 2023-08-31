@@ -1,4 +1,4 @@
-import { cleanNonSet } from "../../src/utils/record"
+import { cleanNonSet } from '../../src/utils/record'
 
 describe('Record', () => {
   it('cleanNonSet removes empty string values', () => {
@@ -7,7 +7,7 @@ describe('Record', () => {
       aWhiteSpaceProperty: '   ',
       aValidProperty: 'a valid value'
     }
-    const expected: Record<string, string> = {aValidProperty: 'a valid value'}
+    const expected: Record<string, string> = { aValidProperty: 'a valid value' }
 
     const result = cleanNonSet(toClean)
 

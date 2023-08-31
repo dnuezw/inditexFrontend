@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from '@testing-library/user-event';
-import { useEffect } from "react";
-import { TableProvider } from "../../src/context/table/TableProvider";
-import { useTable } from "../../src/context/table/table";
-import { ProductsFixture } from "../fixtures/products";
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { useEffect } from 'react'
+import { TableProvider } from '../../src/context/table/TableProvider'
+import { useTable } from '../../src/context/table/table'
+import { ProductsFixture } from '../fixtures/products'
 
 describe('TableProvider', () => {
   it('renders products data', () => {
@@ -56,7 +56,7 @@ class SUT {
 }
 
 const Test: React.FC = () => {
-  const {table, updateTable, updateProductsOrder} = useTable()
+  const { table, updateTable, updateProductsOrder } = useTable()
 
   useEffect(() => {
     updateTable(ProductsFixture.twoProductsTable)
@@ -71,13 +71,13 @@ const Test: React.FC = () => {
     <>
       {table.map((row) => (
         <div key={row.id}>
-          {row.products.map((product) => 
+          {row.products.map((product) => (
             <div key={product.id} role='gridcell'>
               <p>{product.name}</p>
               <p>{product.img}</p>
               <p>{product.price}</p>
             </div>
-          )}
+          ))}
         </div>
       ))}
       <button onClick={handleClick}></button>

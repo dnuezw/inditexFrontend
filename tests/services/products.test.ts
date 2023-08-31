@@ -1,7 +1,7 @@
-import { ProductsService } from "../../src/services/products"
-import { JSONRecord } from "../../src/types/http"
-import { ProductsFixture } from "../fixtures/products"
-import { HttpStub } from "../stubs/http"
+import { ProductsService } from '../../src/services/products'
+import { JSONRecord } from '../../src/types/http'
+import { ProductsFixture } from '../fixtures/products'
+import { HttpStub } from '../stubs/http'
 
 describe('ProductsService', () => {
   it('sends the product endpoint to the repository', async () => {
@@ -9,7 +9,9 @@ describe('ProductsService', () => {
 
     await ProductsService.retrieveProducts(ProductsFixture.aProductId)
 
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining('/products'), {ids: ProductsFixture.aProductId})
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining('/products'), {
+      ids: ProductsFixture.aProductId
+    })
   })
 
   it('returns an array of products as a JSONRecord array', async () => {

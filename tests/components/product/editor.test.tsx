@@ -1,7 +1,7 @@
-import { act, render, screen } from "@testing-library/react"
-import Editor from "../../../src/components/product/editor/Editor"
-import { ProductsFixture } from "../../fixtures/products"
-import { ProductsActionStub } from "../../stubs/productsAction"
+import { act, render, screen } from '@testing-library/react'
+import Editor from '../../../src/components/product/editor/Editor'
+import { ProductsFixture } from '../../fixtures/products'
+import { ProductsActionStub } from '../../stubs/productsAction'
 
 vi.mock('react-router-dom', () => ({
   useParams: () => ({
@@ -18,7 +18,7 @@ vi.mock('/src/common/titles', () => {
 })
 
 describe('Editor', () => {
-  it("renders article title", async () => {
+  it('renders article title', async () => {
     ProductsActionStub.spyRetrieveProducts([])
     await SUT.render()
 
@@ -34,6 +34,6 @@ class SUT {
   }
 
   static articleTitle(): HTMLElement {
-    return screen.getByRole('heading', {name: 'a product title'})
+    return screen.getByRole('heading', { name: 'a product title' })
   }
 }

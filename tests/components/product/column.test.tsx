@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import Column from "../../../src/components/product/column/Column"
-import { ProductsBuilder } from "../../fixtures/builders/products"
+import { render, screen } from '@testing-library/react'
+import Column from '../../../src/components/product/column/Column'
+import { ProductsBuilder } from '../../fixtures/builders/products'
 
 describe('Column', () => {
   it('renders a product', () => {
@@ -15,7 +15,7 @@ describe('Column', () => {
 class SUT {
   static render(): void {
     const aProduct = new ProductsBuilder().build()
-    render(<Column product={aProduct}/>)
+    render(<Column product={aProduct} />)
   }
 
   static productImage(): HTMLElement {
@@ -23,7 +23,7 @@ class SUT {
   }
 
   static productName(): HTMLElement {
-    return screen.getByRole('heading', {name: 'a name'})
+    return screen.getByRole('heading', { name: 'a name' })
   }
 
   static productPrice(): HTMLElement {

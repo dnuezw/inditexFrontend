@@ -1,5 +1,5 @@
-import { Endpoint } from "../../src/utils/endpoint"
-import { HttpFixture } from "../fixtures/http"
+import { Endpoint } from '../../src/utils/endpoint'
+import { HttpFixture } from '../fixtures/http'
 
 describe('Endpoint', () => {
   it('returns the encoded url', () => {
@@ -7,7 +7,7 @@ describe('Endpoint', () => {
     const endpoint: Endpoint = new Endpoint(HttpFixture.genericUrl)
 
     const finalUrl = endpoint.toUrl()
-    
+
     expect(finalUrl).toEqual(expectedUrl)
   })
 

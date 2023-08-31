@@ -1,6 +1,6 @@
-import { JSONRecord } from "../../src/types/http";
-import { ProductsTable } from "../../src/types/product";
-import { ProductsBuilder } from "./builders/products";
+import { JSONRecord } from '../../src/types/http'
+import { ProductsTable } from '../../src/types/product'
+import { ProductsBuilder } from './builders/products'
 
 export class ProductsFixture {
   static aProductId: string = '1'
@@ -27,24 +27,52 @@ export class ProductsFixture {
   static twoProductsTable: ProductsTable = [
     {
       id: this.aRowId,
-      products: [new ProductsBuilder().build(), new ProductsBuilder().with().id(this.anotherProductId).and().img('another img').and().name('another name').and().price(2).build()]
+      products: [
+        new ProductsBuilder().build(),
+        new ProductsBuilder()
+          .with()
+          .id(this.anotherProductId)
+          .and()
+          .img('another img')
+          .and()
+          .name('another name')
+          .and()
+          .price(2)
+          .build()
+      ]
     }
   ]
 
   static someProductsTable: ProductsTable = [
     {
       id: this.aRowId,
-      products: [
-        new ProductsBuilder().build()
-      ]
+      products: [new ProductsBuilder().build()]
     },
     {
       id: this.anotherRowId,
-      products: [new ProductsBuilder().with().img('another img').and().name('another name').and().price(2).build()]
+      products: [
+        new ProductsBuilder()
+          .with()
+          .img('another img')
+          .and()
+          .name('another name')
+          .and()
+          .price(2)
+          .build()
+      ]
     },
     {
       id: this.otherRowId,
-      products: [new ProductsBuilder().with().img('other img').and().name('other name').and().price(3).build()]
+      products: [
+        new ProductsBuilder()
+          .with()
+          .img('other img')
+          .and()
+          .name('other name')
+          .and()
+          .price(3)
+          .build()
+      ]
     }
   ]
 }
