@@ -117,7 +117,7 @@ $ make test
 $ docker compose run --rm app npm run test
 ```
 
-Finally, to run the end to end tests we execute:
+Finally, to run the end to end tests, first we will need to have the application up and running, then we execute:
 ```
 $ make e2e-test
 ```
@@ -145,7 +145,7 @@ To run the tests we will run the following command:
 $ npm run test
 ```
 
-Finally, to run the end to end tests, we first go to the e2e folder and install all the necessary dependencies using one of the following commands:
+Finally, to run the end to end tests, first we will need to have the application up and running, then we go to the e2e folder and install all the necessary dependencies using one of the following commands:
 ```
 $ npm ci
 ```
