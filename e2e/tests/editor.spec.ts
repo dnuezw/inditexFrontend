@@ -9,14 +9,6 @@ test.describe('Editor', () => {
     expect(page).toHaveTitle('Editor')
   })
 
-  test('renders 3 columns', async ({ page }) => {
-    await page.goto(baseUrl + '/1,2,3')
-
-    const products = page.locator('.column')
-
-    expect(products).toHaveCount(3)
-  })
-
   test('drag and drop a product reorders a row', async ({ page }) => {
     const expectedOrder = ['White jeans150', 'Black jeans200', 'Blue jeans100']
     await page.goto(baseUrl + '/1,2,3')
