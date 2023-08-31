@@ -163,3 +163,12 @@ After that, we can run the e2e tests by executing:
 ```
 $ npm run e2e
 ```
+
+## Use the application with mocked data
+In order to visualize diferent products, we will need to update the product ids from the url directly. Current the supported ones are:
+
+- 1 (will render 1 product)
+- 1,2 (will render 2 products)
+- 1,2,3 (will render 3 product)
+- 1,2,3,4 (will render 4 product)
+- Anything else (will render 10 product)
